@@ -1,0 +1,59 @@
+name: silver
+adopt-info: silver
+summary: Mass Vulnerability Scanner
+description: |
+    masscan is fast, nmap can fingerprint software and vulners is a huge vulnerability database.
+    Silver is a front-end that allows complete utilization of these programs by parsing data,
+    spawning parallel processes, caching vulnerability data for faster scanning over time and 
+    much more.    
+
+license: GPL-3.0
+
+base: core18
+grade: stable
+confinement: strict
+compression: lzo
+
+apps:
+  silver:
+    command: silver.py
+    environment:
+      LC_ALL: C.UTF-8
+      PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
+    plugs:
+      - home
+      - network
+      - network-bind
+      
+parts:
+  silver:
+    source: https://github.com/s0md3v/Silver
+    source-type: git
+    plugin: python
+    python-version: python3
+    requirements: 
+      - requirements.txt
+    
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
+      
+    build-packages:
+      - python3
+      - python3-pip
+      - nmap
+      - masscan
+      
+    stage-packages:
+      - python3
+      - nmap
+      - masscan      
+      
+#  publish:
+#    plugin: dump
+#    source: .
+#    organize:
+#      ./silver.py: bin/silver.py
+#      ./db: bin/db
+#      ./core: bin/core
+#      ./modules: bin/modules
