@@ -34,6 +34,7 @@ parts:
     override-build: |
       git clone https://github.com/s0md3v/Silver
       cd Silver
+      ls -al
       pip3 install -r requirements.txt
       chmod +x silver.py
     
