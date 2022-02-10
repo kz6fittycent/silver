@@ -46,7 +46,6 @@ parts:
       - nmap
       - masscan
       - git
-      - python3-pip
       
     stage-packages:
       - python3
