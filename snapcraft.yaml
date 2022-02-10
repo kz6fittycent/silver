@@ -30,7 +30,8 @@ parts:
     source: https://github.com/s0md3v/Silver
     source-type: git
     plugin: python
-      
+    requirements: [requirements.txt]
+    
     override-pull: |
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
