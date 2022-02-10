@@ -48,11 +48,11 @@ parts:
       - nmap
       - masscan      
       
-#  publish:
-#    plugin: dump
-#    source: .
-#    organize:
-#      ./silver.py: bin/silver.py
-#      ./db: bin/db
-#      ./core: bin/core
-#      ./modules: bin/modules
+  publish:
+    plugin: dump
+    source: .
+    organize:
+      ./silver.py: bin/silver.py
+      ./db: bin/db
+      ./core: bin/core
+      ./modules: bin/modules
