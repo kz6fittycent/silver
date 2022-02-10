@@ -16,7 +16,7 @@ compression: lzo
 
 apps:
   silver:
-    command: python3 $SNAP/bin/silver.py
+    command: bin/Silver/silver.py
     environment:
       LC_ALL: C.UTF-8
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
@@ -35,6 +35,7 @@ parts:
       git clone https://github.com/s0md3v/Silver
       cd Silver
       pip3 install -r requirements.txt
+      chmod +x silver.py
     
     override-pull: |
       snapcraftctl pull
