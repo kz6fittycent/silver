@@ -9,14 +9,14 @@ description: |
 
 license: GPL-3.0
 
-base: core18
+base: core20
 grade: stable
 confinement: strict
 compression: lzo
 
 apps:
   silver:
-    command: silver.py
+    command: bin/silver.py
     environment:
       LC_ALL: C.UTF-8
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
@@ -30,7 +30,6 @@ parts:
     source: https://github.com/s0md3v/Silver
     source-type: git
     plugin: python
-    python-version: python3
     requirements: 
       - requirements.txt
     
