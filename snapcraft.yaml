@@ -16,7 +16,7 @@ compression: lzo
 
 apps:
   silver:
-    command: python3 $SNAP/silver.py
+    command: python3 $SNAP/bin/silver.py
     environment:
       LC_ALL: C.UTF-8
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
