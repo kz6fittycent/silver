@@ -16,7 +16,7 @@ compression: lzo
 
 apps:
   silver:
-    command: bin/Silver/silver.py
+    command: bin/silver.py
     environment:
       LC_ALL: C.UTF-8
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
@@ -34,7 +34,6 @@ parts:
     override-build: |
       git clone https://github.com/s0md3v/Silver
       cd Silver
-      ls -al
       pip3 install -r requirements.txt
       chmod +x silver.py
     
