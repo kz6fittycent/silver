@@ -29,13 +29,12 @@ parts:
   silver:
     source: https://github.com/s0md3v/Silver
     source-type: git
-    plugin: python
-    requirements: 
-      - requirements.txt
+    plugin: nil
     
     override-build: |
       git clone https://github.com/s0md3v/Silver
-      
+      cd Silver
+      pip3 install -r requirements.txt
     
     override-pull: |
       snapcraftctl pull
@@ -47,6 +46,7 @@ parts:
       - nmap
       - masscan
       - git
+      - pip3
       
     stage-packages:
       - python3
